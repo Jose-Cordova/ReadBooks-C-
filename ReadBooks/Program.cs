@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ReadBooks.Models;
 using ReadBooks.Models.Context;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,20 @@ builder.Services.AddDbContext<ReadBooksDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
+builder.Services.AddIdentity<Usuario, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+.AddEntityFrameworkStores<ReadBooksDbContext>()
+.AddDefaultTokenProviders();
+
+//Configuramos la cookie de autenticacion
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/Login";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,9 +36,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+await SeederUser.SeedAsync(app.Services);
+
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

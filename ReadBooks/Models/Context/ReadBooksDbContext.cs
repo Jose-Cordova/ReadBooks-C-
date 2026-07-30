@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ReadBooks.Models;
 
 namespace ReadBooks.Models.Context
 {
-    public class ReadBooksDbContext: DbContext
+    public class ReadBooksDbContext: IdentityDbContext<Usuario>
     {
         public ReadBooksDbContext(DbContextOptions<ReadBooksDbContext> options) : base(options)
         {

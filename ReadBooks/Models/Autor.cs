@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReadBooks.Models
@@ -15,6 +15,6 @@ namespace ReadBooks.Models
         [MaxLength(50)]
         public string Nombre { get; set; }
 
-        public virtual ICollection<Libro> Libros { get; set; }
+        public virtual ICollection<Libro>? Libros { get; set; }
     }
 }
