@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReadBooks.Models;
 using System.Diagnostics;
 
 namespace ReadBooks.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()

@@ -187,4 +187,5 @@ C:\Users\jose6\source\repos\ReadBooks\ReadBooks\obj\Debug\net10.0\refint\ReadBoo
 C:\Users\jose6\source\repos\ReadBooks\ReadBooks\obj\Debug\net10.0\ReadBooks.pdb
 C:\Users\jose6\source\repos\ReadBooks\ReadBooks\obj\Debug\net10.0\ReadBooks.genruntimeconfig.cache
 C:\Users\jose6\source\repos\ReadBooks\ReadBooks\obj\Debug\net10.0\ref\ReadBooks.dll
+C:\Users\jose6\source\repos\ReadBooks\ReadBooks\obj\Debug\net10.0\ReadBooks.sourcelink.json
 C:\Users\jose6\source\repos\ReadBooks\ReadBooks\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

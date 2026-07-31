@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReadBooks.Models
@@ -42,9 +42,9 @@ namespace ReadBooks.Models
 
         //Llaves foraneas
         [ForeignKey("LibroId")]
-        public virtual Libro Libro { get; set; }
+        public virtual Libro? Libro { get; set; }
 
         [ForeignKey("EstudianteId")]
-        public virtual Estudiante Estudiante { get; set; }
+        public virtual Estudiante? Estudiante { get; set; }
     }
 }

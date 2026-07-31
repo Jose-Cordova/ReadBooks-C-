@@ -1,0 +1,20 @@
+@model ReadBooks.Models.Categoria
+
+@{
+    ViewData["Title"] = "Detalles de Categoría";
+}
+
+<h2>Detalles de Categoría</h2>
+
+<div class="card col-md-6">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">Nombre</dt>
+            <dd class="col-sm-8">@Model.Nombre</dd>
+        </dl>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+        </div>
+    </div>
+</div>

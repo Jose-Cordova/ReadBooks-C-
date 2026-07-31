@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReadBooks.Models
@@ -26,6 +26,6 @@ namespace ReadBooks.Models
         [MaxLength(8)]
         public string? Telefono { get; set; }
 
-        public virtual ICollection<Prestamo> Prestamos { get; set; }
+        public virtual ICollection<Prestamo>? Prestamos { get; set; }
     }
 }
