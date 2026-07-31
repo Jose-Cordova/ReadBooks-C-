@@ -34,21 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReadBooksDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\jose6\\source\\repos\\ReadBooks\\ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
-              "RelativeDocumentMoniker": "ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
-              "ToolTip": "C:\\Users\\jose6\\source\\repos\\ReadBooks\\ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
-              "RelativeToolTip": "ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T01:36:26.879Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -59,8 +46,7 @@
               "RelativeToolTip": "ReadBooks\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-30T01:15:42.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-30T01:15:42.512Z"
             },
             {
               "$type": "Document",
@@ -72,8 +58,7 @@
               "RelativeToolTip": "ReadBooks\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T01:11:31.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-30T01:11:31.718Z"
             },
             {
               "$type": "Document",
@@ -85,8 +70,7 @@
               "RelativeToolTip": "ReadBooks\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAswBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-28T22:18:41.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T22:18:41.804Z"
             },
             {
               "$type": "Document",
@@ -98,8 +82,7 @@
               "RelativeToolTip": "ReadBooks\\Program.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-28T22:16:01.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T22:16:01.742Z"
             },
             {
               "$type": "Document",
@@ -109,10 +92,22 @@
               "RelativeDocumentMoniker": "ReadBooks\\Models\\Context\\SeederUser.cs",
               "ToolTip": "C:\\Users\\jose6\\source\\repos\\ReadBooks\\ReadBooks\\Models\\Context\\SeederUser.cs",
               "RelativeToolTip": "ReadBooks\\Models\\Context\\SeederUser.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswBoAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswB0AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-28T21:43:52.582Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReadBooksDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jose6\\source\\repos\\ReadBooks\\ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "ToolTip": "C:\\Users\\jose6\\source\\repos\\ReadBooks\\ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T01:36:26.879Z"
             }
           ]
         }

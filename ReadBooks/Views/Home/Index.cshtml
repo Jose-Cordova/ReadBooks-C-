@@ -1,8 +1,93 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Reportes y Estadísticas";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Título y Botón -->
+<div class="flex justify-between items-center border-b pb-4 mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Reportes y Estadísticas</h1>
+    <button class="bg-[#d9534f] hover:bg-[#c9302c] text-white px-5 py-2.5 rounded-md font-semibold transition-colors flex items-center gap-2 shadow-sm">
+        <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+    </button>
+</div>
+
+<!-- Sección: Resumen general -->
+<div class="mb-10">
+    <h2 class="text-xl font-bold text-gray-800 mb-4">Resumen general</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        
+        <!-- Tarjeta 1: Préstamos totales -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 flex flex-col items-center justify-center border-l-4 border-l-gray-800">
+            <span class="text-gray-500 font-semibold text-xs mb-1">Préstamos totales</span>
+            <span class="text-3xl font-bold text-gray-800">7</span>
+        </div>
+
+        <!-- Tarjeta 2: Activos -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 flex flex-col items-center justify-center border-l-4 border-l-blue-500">
+            <span class="text-gray-500 font-semibold text-xs mb-1">Activos</span>
+            <span class="text-3xl font-bold text-blue-500">5</span>
+        </div>
+
+        <!-- Tarjeta 3: Atrasados -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 flex flex-col items-center justify-center border-l-4 border-l-red-500">
+            <span class="text-gray-500 font-semibold text-xs mb-1">Atrasados</span>
+            <span class="text-3xl font-bold text-red-500">3</span>
+        </div>
+
+        <!-- Tarjeta 4: Devueltos -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 flex flex-col items-center justify-center border-l-4 border-l-green-600">
+            <span class="text-gray-500 font-semibold text-xs mb-1">Devueltos</span>
+            <span class="text-3xl font-bold text-green-700">2</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- Sección: Estado físico de devoluciones -->
+<div>
+    <h2 class="text-xl font-bold text-gray-800 mb-1">Estado físico de devoluciones</h2>
+    <p class="text-gray-500 text-sm mb-4">Condición registrada al momento de devolver, por préstamo cerrado.</p>
+
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-[#1a1a2e]">
+                <tr>
+                    <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-white tracking-wider">Libro</th>
+                    <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-white tracking-wider">Estudiante</th>
+                    <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-white tracking-wider">Fecha devolución</th>
+                    <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-white tracking-wider">Condición al entregar</th>
+                    <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-white tracking-wider">Condición al devolver</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                
+                <!-- Fila 1 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">Sapiens</td>
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">Lucía Flores</td>
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">28/06/2026</td>
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">Buena</td>
+                    <td class="px-6 py-5 whitespace-nowrap">
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            Buena
+                        </span>
+                    </td>
+                </tr>
+
+                <!-- Fila 2 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">Ficciones</td>
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">Carlos Pineda</td>
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">14/06/2026</td>
+                    <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-700">Buena</td>
+                    <td class="px-6 py-5 whitespace-nowrap">
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            Dañado - hojas sueltas
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>

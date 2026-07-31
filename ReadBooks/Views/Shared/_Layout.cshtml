@@ -1,56 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ReadBooks</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ReadBooks.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - Sistema de Biblioteca</title>
+    <!-- Agregamos Tailwind CSS (CDN para desarrollo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Agregamos FontAwesome para los Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#1a1a2e',
+                        brandRed: '#d9534f',
+                        brandRedHover: '#c9302c',
+                        brandBlue: '#007bff'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ReadBooks</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categorías</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Autor" asp-action="Index">Autores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<body class="bg-gray-50 flex flex-col min-h-screen font-sans">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - ReadBooks - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Navbar -->
+    <header class="bg-brandDark text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a asp-controller="Home" asp-action="Index" class="text-xl font-bold tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-sky-400"></i>
+                        <span>ReadBooks</span>
+                    </a>
+                </div>
+
+                <!-- Menú -->
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-book"></i> Libros
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-users"></i> Estudiantes
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-arrows-rotate"></i> Préstamos
+                    </a>
+                    
+                    <!-- Botón Activo (Reportes) -->
+                    <a asp-controller="Home" asp-action="Index" class="bg-white/10 text-white px-4 py-2 rounded-md text-sm font-medium border border-white/20 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-simple"></i> Reportes
+                    </a>
+
+                    <!-- Botón Cerrar Sesión -->
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="inline ml-2">
+                        <button type="submit" class="bg-brandRed hover:bg-brandRedHover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                        </button>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        @RenderBody()
+    </main>
+
+    <!-- Footer oscuro igual al navbar -->
+    <footer class="bg-brandDark text-white text-sm py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400">
+            &copy; 2026 Sistema de Administración de Biblioteca. Todos los derechos reservados.
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
