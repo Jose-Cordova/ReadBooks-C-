@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+*.user
+
+# Carpetas de compilación
+bin/
+obj/
+
+# Otros archivos de VS
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Node.js
+node_modules/
