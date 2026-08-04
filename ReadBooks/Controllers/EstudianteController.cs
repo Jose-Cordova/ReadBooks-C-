@@ -47,10 +47,10 @@ namespace ReadBooks.Controllers
                 .OrderBy(e => e.Nombre)
                 .ToListAsync();
 
-            return View(estudiantes); 
+            return View(estudiantes);
         }
 
-        
+
         // en este get , me trae solo el diselo del modal
         public IActionResult Create()
         {
@@ -70,7 +70,8 @@ namespace ReadBooks.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // si hay un error de validacion, 
+            
+            Response.StatusCode = 400;
             return PartialView(estudiante);
         }
 
@@ -88,7 +89,7 @@ namespace ReadBooks.Controllers
             return PartialView(estudiante);
         }
 
-      // para editar al estudiante
+        // para editar al estudiante
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Estudiante estudiante)
@@ -111,6 +112,8 @@ namespace ReadBooks.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            
+            Response.StatusCode = 400;
             return PartialView(estudiante);
         }
 
