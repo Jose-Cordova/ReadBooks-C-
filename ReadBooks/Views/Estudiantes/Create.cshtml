@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Registrar Estudiante";
-    Layout = null; 
+    Layout = null;
 }
 
 <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 min-h-screen p-4">
@@ -11,26 +11,32 @@
         <!-- Header -->
         <div class="bg-brandDark px-6 py-4 flex justify-between items-center">
             <h2 class="text-lg font-bold text-white">Registrar Estudiante</h2>
-            
+
             <button onclick="cerrarModal()" class="text-white hover:text-gray-300">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
         </div>
 
         <div class="p-6">
-            <form asp-controller="Estudiantes" asp-action="Create" method="post">
+
+            
+            <form id="formCrearEstudiante" action="/Estudiantes/Create" method="post" onsubmit="enviarFormularioCrear(event)">
                 @Html.AntiForgeryToken()
                 <div asp-validation-summary="ModelOnly" class="text-red-600 text-sm mb-3"></div>
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-                    <input asp-for="Nombre" class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" />
+                    <input asp-for="Nombre"
+                           onkeypress="return /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/.test(event.key)"
+                           class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" />
                     <span asp-validation-for="Nombre" class="text-red-600 text-xs"></span>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Apellido</label>
-                    <input asp-for="Apellido" class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" />
+                    <input asp-for="Apellido"
+                           onkeypress="return /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/.test(event.key)"
+                           class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" />
                     <span asp-validation-for="Apellido" class="text-red-600 text-xs"></span>
                 </div>
 
@@ -42,12 +48,13 @@
 
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-                    <input asp-for="Telefono" class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" />
+                    <input asp-for="Telefono"
+                           onkeypress="return /^[0-9]$/.test(event.key)"
+                           class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" />
                     <span asp-validation-for="Telefono" class="text-red-600 text-xs"></span>
                 </div>
 
                 <div class="flex justify-end gap-3">
-
                     <button type="button" onclick="cerrarModal()"
                             class="px-5 py-2 rounded-md bg-brandBlue text-white hover:opacity-90">
                         Cancelar
