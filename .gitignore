@@ -13,8 +13,3 @@ obj/
 
 # Node.js
 node_modules/
-
-# Archivos de configuración local y credenciales de usuario
-**/appsettings.Development.json
-**/appsettings.Local.json
-**/appsettings.*.user.json

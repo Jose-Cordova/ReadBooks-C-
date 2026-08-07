@@ -19,16 +19,31 @@ namespace ReadBooks.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pagina = 1)
         {
+            const int tamanoPagina = 10;
+
+            int totalRegistros = await _context.Libros.CountAsync();
+            int totalPaginas = (int)Math.Ceiling((double)totalRegistros / tamanoPagina);
+
+            if (pagina < 1) pagina = 1;
+            if (totalPaginas > 0 && pagina > totalPaginas) pagina = totalPaginas;
+
             var libros = await _context.Libros
                 .Include(l => l.Autor)
                 .Include(l => l.Categoria)
                 .AsNoTracking()
+                .OrderBy(l => l.Titulo)
+                .Skip((pagina - 1) * tamanoPagina)
+                .Take(tamanoPagina)
                 .ToListAsync();
 
             ViewBag.Autores = await _context.Autores.AsNoTracking().ToListAsync();
             ViewBag.Categorias = await _context.Categorias.AsNoTracking().ToListAsync();
+
+            ViewBag.PaginaActual = pagina;
+            ViewBag.TotalPaginas = totalPaginas;
+            ViewBag.TotalRegistros = totalRegistros;
 
             return View(libros);
         }
