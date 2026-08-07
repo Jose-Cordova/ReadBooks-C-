@@ -1,0 +1,878 @@
+@model IEnumerable<ReadBooks.Models.Libro>
+
+@{
+    ViewData["Title"] = "Gestión de Libros";
+    var autores = ViewBag.Autores as IEnumerable<ReadBooks.Models.Autor> ?? Enumerable.Empty<ReadBooks.Models.Autor>();
+    var categorias = ViewBag.Categorias as IEnumerable<ReadBooks.Models.Categoria> ?? Enumerable.Empty<ReadBooks.Models.Categoria>();
+}
+
+<style>
+    * { font-family: 'Poppins', sans-serif; }
+
+    :root {
+        --primary-purple: #1b1226;
+        --primary-red: #DA4848;
+        --btn-blue: #1976D2;
+        --btn-green: #28a745;
+        --radius: 8px;
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #eee;
+    }
+    .section-header h2 { color: var(--primary-purple); font-size: 1.6rem; }
+
+    .header-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+    .search-input {
+        padding: 0.6rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: var(--radius);
+        outline: none;
+        min-width: 250px;
+        background: #fff;
+        color: var(--primary-purple);
+        font-size: 0.9rem;
+        transition: border 0.3s;
+    }
+    .search-input:focus { border-color: var(--primary-purple); box-shadow: 0 0 0 3px rgba(27,18,38,0.1); }
+
+    .btn-add {
+        background: var(--primary-purple);
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: var(--radius);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: opacity 0.2s;
+        text-decoration: none;
+    }
+    .btn-add:hover { opacity: 0.88; color: white; }
+    .btn-add.blue { background: var(--btn-blue); }
+
+    .table-container {
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow-x: auto;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    table thead { background: var(--primary-purple); color: white; }
+    table th, table td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+    table tbody tr { background: #ffffff; }
+    table tbody tr:hover { background: #fafafa; }
+
+    .badge-disponible { padding: 3px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; background: #d4edda; color: #155724; }
+    .badge-nodisponible { padding: 3px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; background: #f8d7da; color: #721c24; }
+
+    .btn-icon { border: none; background: transparent; cursor: pointer; margin: 0 4px; font-size: 1.05rem; }
+    .btn-icon.edit { color: var(--btn-green); }
+    .btn-icon.delete { color: var(--primary-red); }
+    .btn-icon:hover { opacity: 0.75; }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 520px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        animation: modalIn 0.3s ease;
+    }
+    @@keyframes modalIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+    }
+    .modal-header {
+        background: var(--primary-purple);
+        color: white;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modal-header h3 { font-size: 1.1rem; margin: 0; }
+    .modal-header.danger { background: var(--primary-red); }
+    .close-modal { font-size: 1.5rem; cursor: pointer; line-height: 1; }
+    .close-modal:hover { color: #ffc0c0; }
+    .modal-body { padding: 1.5rem; }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.3rem; font-size: 0.88rem; color: var(--primary-purple); font-weight: 600; }
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 0.6rem 0.8rem;
+        background: #f8f9fa;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: var(--primary-purple);
+        font-size: 0.9rem;
+        outline: none;
+        transition: border 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--primary-purple); }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 1.5rem; }
+
+    .btn-submit { padding: 0.65rem 1.4rem; background: var(--primary-red); color: white; border: none; border-radius: var(--radius); cursor: pointer; font-weight: 600; transition: background 0.2s; }
+    .btn-submit:hover { background: #b53b3b; }
+    .btn-cancel-modal { padding: 0.65rem 1.4rem; background: var(--btn-blue); color: white; border: none; border-radius: var(--radius); cursor: pointer; font-weight: 600; transition: background 0.2s; }
+    .btn-cancel-modal:hover { background: #1565C0; }
+    .btn-danger-confirm { padding: 0.65rem 1.4rem; background: var(--primary-red); color: white; border: none; border-radius: var(--radius); cursor: pointer; font-weight: 600; }
+
+    .modal-list-container { max-height: 230px; overflow-y: auto; border: 1px solid #eee; border-radius: 8px; margin-top: 5px; }
+    .modal-list-container table { width: 100%; border-collapse: collapse; }
+    .modal-list-container td { padding: 0.7rem 1rem; border-bottom: 1px solid #eee; }
+
+    .quick-add-bar { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .quick-add-bar input { flex: 1; padding: 0.6rem; border: 1px solid #ccc; border-radius: 4px; outline: none; }
+    .quick-add-bar input:focus { border-color: var(--primary-purple); }
+    .btn-add-small { background: var(--primary-purple); color: white; border: none; padding: 0.6rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+    .btn-add-small:hover { opacity: 0.88; }
+
+    .field-error { color: #DC2626; font-size: 0.78rem; margin-top: 4px; display: block; }
+    .form-error-general { color: #DC2626; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
+</style>
+
+<div class="section-header">
+    <h2><i class="fa-solid fa-book mr-2"></i> Gestión de Libros</h2>
+    <div class="header-actions">
+        <input type="text" id="book-search" class="search-input" placeholder="Buscar por título o categoría..." onkeyup="filterBooks()" />
+        <button class="btn-add blue" onclick="openCategoriesModal()">
+            <i class="fa-solid fa-tags"></i> Categorías
+        </button>
+        <button class="btn-add blue" onclick="openAuthorsModal()">
+            <i class="fa-solid fa-users"></i> Autores
+        </button>
+        <button class="btn-add" onclick="openBookModal()">
+            <i class="fa-solid fa-plus"></i> Registrar Libro
+        </button>
+    </div>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Categoría</th>
+                <th>Stock (Disponible)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="books-tbody">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr data-id="@item.Id"
+                    data-titulo="@item.Titulo"
+                    data-anio="@item.AnioPublicacion"
+                    data-total="@item.TotalEjemplares"
+                    data-disponibles="@item.EjemplaresDisponibles"
+                    data-autor-id="@item.AutorId"
+                    data-categoria-id="@item.CategoriaId">
+                    <td><strong>@item.Titulo</strong></td>
+                    <td>@(item.Autor?.Nombre ?? "—")</td>
+                    <td>@(item.Categoria?.Nombre ?? "—")</td>
+                    <td class="stock-cell" data-id="@item.Id"><strong>@item.EjemplaresDisponibles</strong> / @item.TotalEjemplares</td>
+                    <td>
+                        <button class="btn-icon edit" onclick="openBookModalFromRow(this)" title="Editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon delete" onclick="openDeleteModalFromRow(this)" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" style="text-align:center; color:#888; padding: 2rem;">
+                    <i class="fa-solid fa-book-open" style="font-size:2rem; color:#ccc; display:block; margin-bottom:8px;"></i>
+                    No hay libros registrados en el sistema.
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+@{
+    int paginaActual = ViewBag.PaginaActual ?? 1;
+    int totalPaginas = ViewBag.TotalPaginas ?? 1;
+}
+
+@if (totalPaginas > 1)
+{
+    <div class="flex justify-center mt-6">
+        <div class="inline-flex rounded-xl">
+            <ul class="flex items-center">
+                <li class="px-2">
+                    @if (paginaActual > 1)
+                    {
+                        <a href="?pagina=@(paginaActual - 1)" title="Anterior" class="w-9 h-9 flex items-center justify-center rounded-md border border-gray-300 text-black hover:border-[#1b1226] hover:text-[#1b1226]">
+                            <span>
+                                <svg width="8" height="15" viewBox="0 0 8 15" class="fill-current stroke-current"><path d="M7.12979 1.91389L7.1299 1.914L7.1344 1.90875C7.31476 1.69833 7.31528 1.36878 7.1047 1.15819C7.01062 1.06412 6.86296 1.00488 6.73613 1.00488C6.57736 1.00488 6.4537 1.07206 6.34569 1.18007L6.34564 1.18001L6.34229 1.18358L0.830207 7.06752C0.830152 7.06757 0.830098 7.06763 0.830043 7.06769C0.402311 7.52078 0.406126 8.26524 0.827473 8.73615L0.827439 8.73618L0.829982 8.73889L6.34248 14.6014L6.34243 14.6014L6.34569 14.6047C6.546 14.805 6.88221 14.8491 7.1047 14.6266C7.30447 14.4268 7.34883 14.0918 7.12833 13.8693L1.62078 8.01209C1.55579 7.93114 1.56859 7.82519 1.61408 7.7797L1.61413 7.77975L1.61729 7.77639L7.12979 1.91389Z" stroke-width="0.3"></path></svg>
+                            </span>
+                        </a>
+                    }
+                    else
+                    {
+                        <button aria-disabled="true" disabled class="w-9 h-9 flex items-center justify-center rounded-md border border-gray-300 text-gray-400 opacity-60">
+                            <span>
+                                <svg width="8" height="15" viewBox="0 0 8 15" class="fill-current stroke-current"><path d="M7.12979 1.91389L7.1299 1.914L7.1344 1.90875C7.31476 1.69833 7.31528 1.36878 7.1047 1.15819C7.01062 1.06412 6.86296 1.00488 6.73613 1.00488C6.57736 1.00488 6.4537 1.07206 6.34569 1.18007L6.34564 1.18001L6.34229 1.18358L0.830207 7.06752C0.830152 7.06757 0.830098 7.06763 0.830043 7.06769C0.402311 7.52078 0.406126 8.26524 0.827473 8.73615L0.827439 8.73618L0.829982 8.73889L6.34248 14.6014L6.34243 14.6014L6.34569 14.6047C6.546 14.805 6.88221 14.8491 7.1047 14.6266C7.30447 14.4268 7.34883 14.0918 7.12833 13.8693L1.62078 8.01209C1.55579 7.93114 1.56859 7.82519 1.61408 7.7797L1.61413 7.77975L1.61729 7.77639L7.12979 1.91389Z" stroke-width="0.3"></path></svg>
+                            </span>
+                        </button>
+                    }
+                </li>
+
+                @for (int i = 1; i <= totalPaginas; i++)
+                {
+                    <li class="px-2">
+                        @if (i == paginaActual)
+                        {
+                            <button class="w-9 h-9 rounded-md border border-[#1b1226] bg-[#1b1226] text-white font-semibold">@i</button>
+                        }
+                        else
+                        {
+                            <a href="?pagina=@i" class="w-9 h-9 flex items-center justify-center rounded-md border border-gray-300 text-black hover:border-[#1b1226] hover:text-[#1b1226]">@i</a>
+                        }
+                    </li>
+                }
+
+                <li class="px-2">
+                    @if (paginaActual < totalPaginas)
+                    {
+                        <a href="?pagina=@(paginaActual + 1)" title="Siguiente" class="w-9 h-9 flex items-center justify-center rounded-md border border-gray-300 text-black hover:border-[#1b1226] hover:text-[#1b1226]">
+                            <span>
+                                <svg width="8" height="15" viewBox="0 0 8 15" class="fill-current stroke-current"><path d="M0.870212 13.0861L0.870097 13.086L0.865602 13.0912C0.685237 13.3017 0.684716 13.6312 0.895299 13.8418C0.989374 13.9359 1.13704 13.9951 1.26387 13.9951C1.42264 13.9951 1.5463 13.9279 1.65431 13.8199L1.65436 13.82L1.65771 13.8164L7.16979 7.93248C7.16985 7.93243 7.1699 7.93237 7.16996 7.93231C7.59769 7.47923 7.59387 6.73477 7.17253 6.26385L7.17256 6.26382L7.17002 6.26111L1.65752 0.398611L1.65757 0.398563L1.65431 0.395299C1.454 0.194997 1.11779 0.150934 0.895299 0.373424C0.695526 0.573197 0.651169 0.908167 0.871667 1.13067L6.37922 6.98791C6.4442 7.06886 6.43141 7.17481 6.38592 7.2203L6.38587 7.22025L6.38271 7.22361L0.870212 13.0861Z" stroke-width="0.3"></path></svg>
+                            </span>
+                        </a>
+                    }
+                    else
+                    {
+                        <button aria-disabled="true" disabled class="w-9 h-9 flex items-center justify-center rounded-md border border-gray-300 text-gray-400 opacity-60">
+                            <span>
+                                <svg width="8" height="15" viewBox="0 0 8 15" class="fill-current stroke-current"><path d="M0.870212 13.0861L0.870097 13.086L0.865602 13.0912C0.685237 13.3017 0.684716 13.6312 0.895299 13.8418C0.989374 13.9359 1.13704 13.9951 1.26387 13.9951C1.42264 13.9951 1.5463 13.9279 1.65431 13.8199L1.65436 13.82L1.65771 13.8164L7.16979 7.93248C7.16985 7.93243 7.1699 7.93237 7.16996 7.93231C7.59769 7.47923 7.59387 6.73477 7.17253 6.26385L7.17256 6.26382L7.17002 6.26111L1.65752 0.398611L1.65757 0.398563L1.65431 0.395299C1.454 0.194997 1.11779 0.150934 0.895299 0.373424C0.695526 0.573197 0.651169 0.908167 0.871667 1.13067L6.37922 6.98791C6.4442 7.06886 6.43141 7.17481 6.38592 7.2203L6.38587 7.22025L6.38271 7.22361L0.870212 13.0861Z" stroke-width="0.3"></path></svg>
+                            </span>
+                        </button>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+<div id="modal-categorias" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="titulo-modal-categorias">Gestión de Categorías</h3>
+            <span class="close-modal" onclick="closeModal('modal-categorias')">&times;</span>
+        </div>
+        <div class="modal-body" id="body-categorias">
+        </div>
+    </div>
+</div>
+
+<div id="modal-autores" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="titulo-modal-autores">Gestión de Autores</h3>
+            <span class="close-modal" onclick="closeModal('modal-autores')">&times;</span>
+        </div>
+        <div class="modal-body" id="body-autores">
+        </div>
+    </div>
+</div>
+
+<div id="toast-container" class="fixed top-5 right-2 z-[10000] max-w-md w-full pointer-events-none space-y-3">
+    <div id="toast-success" class="hidden flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow" role="alert">
+        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>
+            <span class="sr-only">Check icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal toast-mensaje">Libro guardado correctamente.</div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8" onclick="document.getElementById('toast-success').classList.add('hidden')" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+        </button>
+    </div>
+    <div id="toast-danger" class="hidden flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow" role="alert">
+        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+            </svg>
+            <span class="sr-only">Error icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal toast-mensaje">Ocurrió un error.</div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8" onclick="document.getElementById('toast-danger').classList.add('hidden')" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<div id="modal-libro" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:550px;">
+        <div class="modal-header">
+            <h3 id="titulo-modal-libro">Registrar Nuevo Libro</h3>
+            <span class="close-modal" onclick="closeModal('modal-libro')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form id="form-libro" method="post" novalidate>
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="libro-id" name="Id" value="0" />
+                <span class="form-error-general" id="error-general" style="display:none;">Todos los campos son obligatorios.</span>
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" id="libro-titulo" name="Titulo" placeholder="Ej. El Principito" required />
+                    <span class="field-error" id="error-titulo" style="display:none;">Campo obligatorio</span>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                    <div class="form-group">
+                        <label>Año de Publicación</label>
+                        <input type="number" id="libro-anio" name="AnioPublicacion" placeholder="Ej. 1943" required />
+                        <span class="field-error" id="error-anio" style="display:none;">Campo obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Total de Ejemplares</label>
+                        <input type="number" id="libro-total" name="TotalEjemplares" min="0" required />
+                        <span class="field-error" id="error-total" style="display:none;">Campo obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Ejemplares Disponibles</label>
+                        <input type="number" id="libro-disponibles" name="EjemplaresDisponibles" min="0" required />
+                        <span class="field-error" id="error-disponibles" style="display:none;">Campo obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Autor</label>
+                        <select id="libro-autor" name="AutorId" required>
+                            <option value="">-- Seleccionar --</option>
+                            @foreach (var a in autores)
+                            {
+                                <option value="@a.Id">@a.Nombre</option>
+                            }
+                        </select>
+                        <span class="field-error" id="error-autor" style="display:none;">Campo obligatorio</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Categoría</label>
+                    <select id="libro-categoria" name="CategoriaId" required>
+                        <option value="">-- Seleccionar --</option>
+                        @foreach (var c in categorias)
+                        {
+                            <option value="@c.Id">@c.Nombre</option>
+                        }
+                    </select>
+                    <span class="field-error" id="error-categoria" style="display:none;">Campo obligatorio</span>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel-modal" onclick="closeModal('modal-libro')">Cancelar</button>
+                    <button type="submit" class="btn-submit" id="btn-guardar-libro">Guardar Libro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="modal-eliminar" class="modal-overlay" style="display:none;">
+    <div class="bg-white border rounded-lg shadow relative max-w-sm w-full mx-4">
+        <div class="flex justify-end p-2">
+            <button type="button" onclick="closeModal('modal-eliminar')" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+
+        <div class="p-6 pt-0 text-center">
+            <svg class="w-20 h-20 text-red-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 id="mensaje-eliminar" class="text-lg font-normal text-gray-500 mt-3 mb-6">¿Estás seguro de que deseas eliminar este libro?</h3>
+            <form id="form-eliminar" method="post" class="inline-block">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-4 py-2 text-center mr-2 cursor-pointer">
+                    Sí, estoy seguro
+                </button>
+            </form>
+            <button type="button" onclick="closeModal('modal-eliminar')" class="text-gray-900 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-cyan-200 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-4 py-2 text-center cursor-pointer">
+                No, cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    let categorias = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+        categorias.Select(c => new { id = c.Id, nombre = c.Nombre })
+    ));
+    let autores = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+        autores.Select(a => new { id = a.Id, nombre = a.Nombre })
+    ));
+
+    function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) this.style.display = 'none';
+        });
+    });
+
+    function filterBooks() {
+        const query = document.getElementById('book-search').value.toLowerCase();
+        document.querySelectorAll('#books-tbody tr[data-titulo]').forEach(row => {
+            const titulo = (row.dataset.titulo || '').toLowerCase();
+            const cat = (row.dataset.categoria || '').toLowerCase();
+            row.style.display = (titulo.includes(query) || cat.includes(query)) ? '' : 'none';
+        });
+    }
+
+    function openBookModal(id = null, titulo = '', anio = '', total = 1, disponibles = 1, autorId = '', catId = '') {
+        const esEdicion = id !== null;
+
+        document.getElementById('titulo-modal-libro').textContent = esEdicion ? 'Editar Libro' : 'Registrar Nuevo Libro';
+        document.getElementById('btn-guardar-libro').textContent = esEdicion ? 'Actualizar Libro' : 'Guardar Libro';
+
+        document.getElementById('libro-id').value = id || 0;
+        document.getElementById('libro-titulo').value = titulo;
+        document.getElementById('libro-anio').value = anio;
+        document.getElementById('libro-total').value = total;
+        document.getElementById('libro-disponibles').value = disponibles;
+        document.getElementById('libro-autor').value = autorId;
+        document.getElementById('libro-categoria').value = catId;
+
+        clearFieldErrors();
+
+        document.getElementById('form-libro').action = esEdicion
+            ? `/Libro/Edit/${id}`
+            : '/Libro/Create';
+
+        openModal('modal-libro');
+    }
+
+    function showToast(tipo, mensaje) {
+        const toast = document.getElementById(tipo === 'success' ? 'toast-success' : 'toast-danger');
+        toast.querySelector('.toast-mensaje').textContent = mensaje;
+        toast.classList.remove('hidden');
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => {
+            toast.classList.add('hidden');
+        }, 3000);
+    }
+
+    function clearFieldErrors() {
+        document.getElementById('error-general').style.display = 'none';
+        document.querySelectorAll('.field-error').forEach(el => el.style.display = 'none');
+    }
+
+    document.querySelectorAll('#form-libro .form-group input, #form-libro .form-group select').forEach(el => {
+        el.addEventListener('input', function() {
+            if (this.value.trim()) {
+                const err = this.closest('.form-group').querySelector('.field-error');
+                if (err) err.style.display = 'none';
+                document.getElementById('error-general').style.display = 'none';
+            }
+        });
+    });
+
+    document.getElementById('form-libro').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        clearFieldErrors();
+
+        const campos = [
+            { id: 'libro-titulo', error: 'error-titulo' },
+            { id: 'libro-anio', error: 'error-anio' },
+            { id: 'libro-total', error: 'error-total' },
+            { id: 'libro-disponibles', error: 'error-disponibles' },
+            { id: 'libro-autor', error: 'error-autor' },
+            { id: 'libro-categoria', error: 'error-categoria' }
+        ];
+
+        const faltantes = campos.filter(c => !document.getElementById(c.id).value.trim());
+
+        if (faltantes.length === campos.length) {
+            document.getElementById('error-general').style.display = 'block';
+            return;
+        }
+
+        if (faltantes.length > 0) {
+            faltantes.forEach(c => {
+                document.getElementById(c.error).style.display = 'block';
+            });
+            return;
+        }
+
+        const total = parseInt(document.getElementById('libro-total').value, 10);
+        const disponibles = parseInt(document.getElementById('libro-disponibles').value, 10);
+        if (disponibles > total) {
+            showToast('danger', 'Los ejemplares disponibles no pueden ser mayores que el total de ejemplares.');
+            return;
+        }
+
+        const form = this;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                closeModal('modal-libro');
+                showToast('success', '¡Libro guardado exitosamente!');
+                if (data.libro) {
+                    const esEdicion = parseInt(document.getElementById('libro-id').value, 10) !== 0;
+                    if (esEdicion) {
+                        actualizarFilaLibro(data.libro);
+                    } else {
+                        agregarFilaLibro(data.libro);
+                    }
+                }
+            } else {
+                showToast('danger', data.message || 'Ocurrió un error al procesar el libro.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('danger', 'Ocurrió un error de red o de comunicación.');
+        });
+    });
+
+    function openDeleteModal(id, titulo) {
+        document.getElementById('mensaje-eliminar').textContent =
+            `¿Estás seguro de que deseas eliminar el libro "${titulo}" permanentemente?`;
+        document.getElementById('form-eliminar').action = `/Libro/Delete/${id}`;
+        openModal('modal-eliminar');
+    }
+
+    function openBookModalFromRow(btn) {
+        const tr = btn.closest('tr');
+        openBookModal(
+            tr.dataset.id,
+            tr.dataset.titulo,
+            tr.dataset.anio,
+            tr.dataset.total,
+            tr.dataset.disponibles,
+            tr.dataset.autorId,
+            tr.dataset.categoriaId
+        );
+    }
+
+    function openDeleteModalFromRow(btn) {
+        const tr = btn.closest('tr');
+        openDeleteModal(tr.dataset.id, tr.dataset.titulo);
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text == null ? '' : String(text);
+        return div.innerHTML;
+    }
+
+    function agregarFilaLibro(libro) {
+        const tdVacio = document.querySelector('#books-tbody td[colspan]');
+        if (tdVacio) tdVacio.closest('tr').remove();
+
+        const tr = document.createElement('tr');
+        tr.dataset.id = libro.id;
+        tr.dataset.titulo = libro.titulo;
+        tr.dataset.anio = libro.anio;
+        tr.dataset.total = libro.total;
+        tr.dataset.disponibles = libro.disponibles;
+        tr.dataset.autorId = libro.autorId;
+        tr.dataset.categoriaId = libro.categoriaId;
+
+        tr.innerHTML = `
+            <td><strong>${escapeHtml(libro.titulo)}</strong></td>
+            <td>${escapeHtml(libro.autorNombre || '—')}</td>
+            <td>${escapeHtml(libro.categoriaNombre || '—')}</td>
+            <td class="stock-cell" data-id="${libro.id}"><strong>${libro.disponibles}</strong> / ${libro.total}</td>
+            <td>
+                <button class="btn-icon edit" onclick="openBookModalFromRow(this)" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon delete" onclick="openDeleteModalFromRow(this)" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+            </td>`;
+
+        document.getElementById('books-tbody').appendChild(tr);
+    }
+
+    function actualizarFilaLibro(libro) {
+        const tr = document.querySelector(`#books-tbody tr[data-id="${libro.id}"]`);
+        if (!tr) return;
+
+        tr.dataset.titulo = libro.titulo;
+        tr.dataset.anio = libro.anio;
+        tr.dataset.total = libro.total;
+        tr.dataset.disponibles = libro.disponibles;
+        tr.dataset.autorId = libro.autorId;
+        tr.dataset.categoriaId = libro.categoriaId;
+
+        tr.children[0].innerHTML = `<strong>${escapeHtml(libro.titulo)}</strong>`;
+        tr.children[1].textContent = libro.autorNombre || '—';
+        tr.children[2].textContent = libro.categoriaNombre || '—';
+        const stockCell = tr.querySelector('.stock-cell');
+        if (stockCell) stockCell.innerHTML = `<strong>${libro.disponibles}</strong> / ${libro.total}`;
+    }
+
+    function openCategoriesModal() {
+        document.getElementById('titulo-modal-categorias').textContent = 'Gestión de Categorías';
+        renderCategoriesContent();
+        openModal('modal-categorias');
+    }
+
+    function renderCategoriesContent() {
+        const rows = categorias.map(c => `
+            <tr>
+                <td><strong>${c.nombre}</strong></td>
+                <td style="text-align:right; white-space:nowrap;">
+                    <button class="btn-icon edit" onclick="editCategoryInline(${c.id}, '${c.nombre.replace(/'/g,"\\'")}')"><i class="fas fa-edit"></i></button>
+                    <button class="btn-icon delete" onclick="deleteCategoryConfirm(${c.id}, '${c.nombre.replace(/'/g,"\\'")}')"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>`).join('');
+
+        document.getElementById('body-categorias').innerHTML = `
+            <div class="quick-add-bar">
+                <input type="text" id="nueva-categoria" placeholder="Escribe nueva categoría..." onkeydown="if(event.key==='Enter'){event.preventDefault();addCategoryAjax();}" />
+                <button class="btn-add-small" onclick="addCategoryAjax()"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+            <div class="modal-list-container">
+                <table><tbody id="cats-list">${rows || '<tr><td style="color:#888;text-align:center;padding:1rem;">No hay categorías registradas.</td></tr>'}</tbody></table>
+            </div>`;
+    }
+
+    function addCategoryAjax() {
+        const nombre = document.getElementById('nueva-categoria').value.trim();
+        if (!nombre) return;
+        fetch('/Libro/AgregarCategoriaAjax', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': getToken() },
+            body: JSON.stringify({ Nombre: nombre })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                categorias.push({ id: data.id, nombre: data.nombre });
+                renderCategoriesContent();
+                refreshBookSelects();
+            }
+        });
+    }
+
+    function editCategoryInline(id, oldName) {
+        document.getElementById('titulo-modal-categorias').textContent = 'Editar Categoría';
+        document.getElementById('body-categorias').innerHTML = `
+            <div class="form-group">
+                <label>Nombre de la categoría</label>
+                <input type="text" id="edit-cat-nombre" value="${oldName}" style="width:100%;padding:0.6rem;border:1px solid #ccc;border-radius:4px;" />
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel-modal" onclick="openCategoriesModal()">Cancelar</button>
+                <button type="button" class="btn-submit" onclick="saveCategoryAjax(${id})">Guardar</button>
+            </div>`;
+    }
+
+    function saveCategoryAjax(id) {
+        const nombre = document.getElementById('edit-cat-nombre').value.trim();
+        if (!nombre) return;
+        fetch('/Libro/EditarCategoriaAjax', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': getToken() },
+            body: JSON.stringify({ Id: id, Nombre: nombre })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                const cat = categorias.find(c => c.id === id);
+                if (cat) cat.nombre = data.nombre;
+                openCategoriesModal();
+                refreshBookSelects();
+            }
+        });
+    }
+
+    function deleteCategoryConfirm(id, nombre) {
+        document.getElementById('titulo-modal-categorias').textContent = 'Eliminar Categoría';
+        document.getElementById('body-categorias').innerHTML = `
+            <p style="margin-bottom:1rem;">¿Estás seguro de que deseas eliminar la categoría <strong>${nombre}</strong>?</p>
+            <p style="font-size:0.85rem; color:#888; margin-bottom:1rem;">No podrás eliminarla si tiene libros asociados.</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel-modal" onclick="openCategoriesModal()">Cancelar</button>
+                <button type="button" class="btn-danger-confirm" onclick="deleteCategoryAjax(${id})">Eliminar</button>
+            </div>`;
+    }
+
+    function deleteCategoryAjax(id) {
+        fetch('/Libro/EliminarCategoriaAjax', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': getToken() },
+            body: JSON.stringify({ id: id })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                categorias = categorias.filter(c => c.id !== id);
+                openCategoriesModal();
+                refreshBookSelects();
+            }
+        });
+    }
+
+    function openAuthorsModal() {
+        document.getElementById('titulo-modal-autores').textContent = 'Gestión de Autores';
+        renderAuthorsContent();
+        openModal('modal-autores');
+    }
+
+    function renderAuthorsContent() {
+        const rows = autores.map(a => `
+            <tr>
+                <td><strong>${a.nombre}</strong></td>
+                <td style="text-align:right; white-space:nowrap;">
+                    <button class="btn-icon edit" onclick="editAuthorInline(${a.id}, '${a.nombre.replace(/'/g,"\\'")}')"><i class="fas fa-edit"></i></button>
+                    <button class="btn-icon delete" onclick="deleteAuthorConfirm(${a.id}, '${a.nombre.replace(/'/g,"\\'")}')"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>`).join('');
+
+        document.getElementById('body-autores').innerHTML = `
+            <div class="quick-add-bar">
+                <input type="text" id="nuevo-autor" placeholder="Escribe nombre del autor..." onkeydown="if(event.key==='Enter'){event.preventDefault();addAuthorAjax();}" />
+                <button class="btn-add-small" onclick="addAuthorAjax()"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+            <div class="modal-list-container">
+                <table><tbody>${rows || '<tr><td style="color:#888;text-align:center;padding:1rem;">No hay autores registrados.</td></tr>'}</tbody></table>
+            </div>`;
+    }
+
+    function addAuthorAjax() {
+        const nombre = document.getElementById('nuevo-autor').value.trim();
+        if (!nombre) return;
+        fetch('/Libro/AgregarAutorAjax', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': getToken() },
+            body: JSON.stringify({ Nombre: nombre })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                autores.push({ id: data.id, nombre: data.nombre });
+                renderAuthorsContent();
+                refreshBookSelects();
+            }
+        });
+    }
+
+    function editAuthorInline(id, oldName) {
+        document.getElementById('titulo-modal-autores').textContent = 'Editar Autor';
+        document.getElementById('body-autores').innerHTML = `
+            <div class="form-group">
+                <label>Nombre del autor</label>
+                <input type="text" id="edit-auth-nombre" value="${oldName}" style="width:100%;padding:0.6rem;border:1px solid #ccc;border-radius:4px;" />
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel-modal" onclick="openAuthorsModal()">Cancelar</button>
+                <button type="button" class="btn-submit" onclick="saveAuthorAjax(${id})">Guardar</button>
+            </div>`;
+    }
+
+    function saveAuthorAjax(id) {
+        const nombre = document.getElementById('edit-auth-nombre').value.trim();
+        if (!nombre) return;
+        fetch('/Libro/EditarAutorAjax', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': getToken() },
+            body: JSON.stringify({ Id: id, Nombre: nombre })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                const auth = autores.find(a => a.id === id);
+                if (auth) auth.nombre = data.nombre;
+                openAuthorsModal();
+                refreshBookSelects();
+            }
+        });
+    }
+
+    function deleteAuthorConfirm(id, nombre) {
+        document.getElementById('titulo-modal-autores').textContent = 'Eliminar Autor';
+        document.getElementById('body-autores').innerHTML = `
+            <p style="margin-bottom:1rem;">¿Estás seguro de que deseas eliminar al autor <strong>${nombre}</strong>?</p>
+            <p style="font-size:0.85rem; color:#888; margin-bottom:1rem;">No podrás eliminarlo si tiene libros asociados.</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel-modal" onclick="openAuthorsModal()">Cancelar</button>
+                <button type="button" class="btn-danger-confirm" onclick="deleteAuthorAjax(${id})">Eliminar</button>
+            </div>`;
+    }
+
+    function deleteAuthorAjax(id) {
+        fetch('/Libro/EliminarAutorAjax', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': getToken() },
+            body: JSON.stringify({ id: id })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                autores = autores.filter(a => a.id !== id);
+                openAuthorsModal();
+                refreshBookSelects();
+            }
+        });
+    }
+
+    function refreshBookSelects() {
+        const selectAutor = document.getElementById('libro-autor');
+        const currentAutor = selectAutor.value;
+        selectAutor.innerHTML = '<option value="">-- Seleccionar --</option>' +
+            autores.map(a => `<option value="${a.id}" ${a.id == currentAutor ? 'selected' : ''}>${a.nombre}</option>`).join('');
+
+        const selectCat = document.getElementById('libro-categoria');
+        const currentCat = selectCat.value;
+        selectCat.innerHTML = '<option value="">-- Seleccionar --</option>' +
+            categorias.map(c => `<option value="${c.id}" ${c.id == currentCat ? 'selected' : ''}>${c.nombre}</option>`).join('');
+    }
+
+    function getToken() {
+        return document.querySelector('input[name="__RequestVerificationToken"]')?.value || '';
+    }
+</script>
+}

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ReadBooks.Models;
 
 namespace ReadBooks.Models.Context
@@ -11,13 +12,12 @@ namespace ReadBooks.Models.Context
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Usuario>>();
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-            //Creamos el rol si no existe en la base de datos
             string roleName = "admin";
             if(!await roleManager.RoleExistsAsync(roleName))
             {
                 await roleManager.CreateAsync(new IdentityRole(roleName));
             }
-            //Creamos el usuario si no existe
+
             string adminEmail = "adminreadbooks@gmail.com";
             var adminUser = await userManager.FindByNameAsync(adminEmail);
             if(adminUser == null)
@@ -28,7 +28,6 @@ namespace ReadBooks.Models.Context
                     Email = adminEmail,
                     EmailConfirmed = true
                 };
-                //CreateAsync toma la contraseña y la encripta
                 var result = await userManager.CreateAsync(newUser, "Admin123*");
                 if (result.Succeeded)
                 {
