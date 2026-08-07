@@ -26,9 +26,6 @@ namespace ReadBooks.Models
         [Required]
         public int EjemplaresDisponibles { get; set; }
 
-        [Column("Existe", TypeName = "boolean")]
-        public bool Existe { get; set; } = true;
-
         [Column("AutorId", TypeName = "integer")]
         public int AutorId { get; set; }
 
@@ -49,5 +46,29 @@ namespace ReadBooks.Models
         public virtual Usuario? Usuario { get; set; }
 
         public virtual ICollection<Prestamo>? Prestamos { get; set; }
+
+        // DescUenta la cantidad prestada del stock disponible. Retorna false si no hay suficientes ejemplares.
+        public bool DescontarEjemplares(int cantidad)
+        {
+            if (cantidad <= 0 || EjemplaresDisponibles < cantidad)
+            {
+                return false;
+            }
+
+            EjemplaresDisponibles -= cantidad;
+            return true;
+        }
+
+        // Aumenta el stock disponible al devolver un prestamo. No puede superar el total de ejemplares.
+        public bool AumentarEjemplares(int cantidad)
+        {
+            if (cantidad <= 0 || EjemplaresDisponibles + cantidad > TotalEjemplares)
+            {
+                return false;
+            }
+
+            EjemplaresDisponibles += cantidad;
+            return true;
+        }
     }
 }

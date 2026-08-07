@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ReadBooks.Models.Context;
@@ -11,9 +12,11 @@ using ReadBooks.Models.Context;
 namespace ReadBooks.Migrations
 {
     [DbContext(typeof(ReadBooksDbContext))]
-    partial class ReadBooksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260807014555_RemoveExisteColumn")]
+    partial class RemoveExisteColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

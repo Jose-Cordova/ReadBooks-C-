@@ -1,0 +1,817 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\controllers\\librocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\controllers\\librocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\libro\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\libro\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\autor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\autor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\libro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\libro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\context\\readbooksdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\context\\readbooksdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\libro\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\libro\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\libro\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\libro\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\estudiantes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\estudiantes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\estudiantes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\estudiantes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\estudiantes\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\estudiantes\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\estudiantes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\estudiantes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\estudiantes\\_tablaestudiantes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\estudiantes\\_tablaestudiantes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\controllers\\estudiantecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\controllers\\estudiantecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\categoria\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\categoria\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\categoria\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\categoria\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\categoria\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\categoria\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\categoria\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\categoria\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\autor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\autor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\autor\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\autor\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\autor\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\autor\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\autor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\autor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\prestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\prestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\estudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\estudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\autor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\autor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\models\\context\\seederuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\models\\context\\seederuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\controllers\\autorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\controllers\\autorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\migrations\\readbooksdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\migrations\\readbooksdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\migrations\\20260728024527_addidentitytables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\migrations\\20260728024527_addidentitytables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\migrations\\20260721214507_initialcreatemigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\migrations\\20260721214507_initialcreatemigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|c:\\users\\adonay navas\\desktop\\readbooks-c-\\readbooks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B7FD0B8-C15B-1E8F-3C53-B8E24A14F845}|ReadBooks\\ReadBooks.csproj|solutionrelative:readbooks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Libro\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Libro\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Libro\\Edit.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Libro\\Edit.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-03T23:06:34.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Libro\\Create.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Libro\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Libro\\Create.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Libro\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAACGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-02T23:13:16.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibroController.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\LibroController.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Controllers\\LibroController.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\LibroController.cs",
+              "RelativeToolTip": "ReadBooks\\Controllers\\LibroController.cs",
+              "ViewState": "AgIAAGEBAAAAAAAAAAAqwHcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:48:14.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReadBooksDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Context\\ReadBooksDbContext.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAiwA4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T01:36:26.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Libro.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Libro.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Libro.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Libro.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Libro.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:48:28.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Index.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Estudiantes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Index.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Estudiantes\\Index.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T18:50:47.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Create.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Estudiantes\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Create.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Estudiantes\\Create.cshtml",
+              "ViewState": "AgIAAB8AAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T18:50:53.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Index.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Autor\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Index.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Autor\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T02:24:36.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Libro\\Index.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Libro\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Libro\\Index.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Libro\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-03T01:29:29.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Estudiantes\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Edit.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Estudiantes\\Edit.cshtml",
+              "ViewState": "AgIAACsAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T18:50:57.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Estudiantes\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\Delete.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Estudiantes\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T18:50:56.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_TablaEstudiantes.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\_TablaEstudiantes.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Estudiantes\\_TablaEstudiantes.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Estudiantes\\_TablaEstudiantes.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Estudiantes\\_TablaEstudiantes.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T18:50:52.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CategoriaController.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\CategoriaController.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Controllers\\CategoriaController.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\CategoriaController.cs",
+              "RelativeToolTip": "ReadBooks\\Controllers\\CategoriaController.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAA9wK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:33:58.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EstudianteController.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\EstudianteController.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Controllers\\EstudianteController.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\EstudianteController.cs",
+              "RelativeToolTip": "ReadBooks\\Controllers\\EstudianteController.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAwwIoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T02:27:33.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Index.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Categoria\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Index.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Categoria\\Index.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAEBVwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-03T01:29:58.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Categoria\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Edit.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Categoria\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T03:50:34.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Details.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Categoria\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Details.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Categoria\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T03:50:29.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Create.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Categoria\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Create.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Categoria\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T03:50:20.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Autor\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Edit.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Autor\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T03:50:03.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Details.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Autor\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Details.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Autor\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T03:49:52.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Usuario.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:47.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Prestamo.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Prestamo.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Prestamo.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Prestamo.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Prestamo.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAqwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:41.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Create.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Autor\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Create.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Autor\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T02:24:34.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Categoria\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Categoria\\Delete.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Categoria\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T02:24:30.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:36.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Estudiante.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Estudiante.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Estudiante.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Estudiante.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Estudiante.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:17.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Autor\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Autor\\Delete.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Autor\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-03T01:36:49.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:16.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Enums.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Enums.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Enums.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Enums.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:11.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Categoria.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:06.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Autor.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Autor.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Autor.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Autor.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Autor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T03:48:01.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ReadBooks\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T01:11:31.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SeederUser.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Context\\SeederUser.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Models\\Context\\SeederUser.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Models\\Context\\SeederUser.cs",
+              "RelativeToolTip": "ReadBooks\\Models\\Context\\SeederUser.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T21:43:52.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AutorController.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\AutorController.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Controllers\\AutorController.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\AutorController.cs",
+              "RelativeToolTip": "ReadBooks\\Controllers\\AutorController.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAA9wLMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:33:54.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ReadBooks\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAIwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T22:18:41.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\appsettings.json",
+              "RelativeDocumentMoniker": "ReadBooks\\appsettings.json",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\appsettings.json",
+              "RelativeToolTip": "ReadBooks\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-02T19:57:24.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-02T23:13:52.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "ReadBooks\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\appsettings.Development.json",
+              "RelativeToolTip": "ReadBooks\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-02T20:12:36.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-02T23:13:52.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAD4AAAAAAAAAAMBdwFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-02T23:13:46.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAEBVwBAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-02T23:14:16.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-02T23:16:45.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "ReadBooks\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "ReadBooks\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-30T01:15:42.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ReadBooksDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Migrations\\ReadBooksDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Migrations\\ReadBooksDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Migrations\\ReadBooksDbContextModelSnapshot.cs",
+              "RelativeToolTip": "ReadBooks\\Migrations\\ReadBooksDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:33:39.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "20260728024527_AddIdentityTables.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Migrations\\20260728024527_AddIdentityTables.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Migrations\\20260728024527_AddIdentityTables.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Migrations\\20260728024527_AddIdentityTables.cs",
+              "RelativeToolTip": "ReadBooks\\Migrations\\20260728024527_AddIdentityTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:33:36.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "20260721214507_InitialCreateMigration.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Migrations\\20260721214507_InitialCreateMigration.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Migrations\\20260721214507_InitialCreateMigration.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Migrations\\20260721214507_InitialCreateMigration.cs",
+              "RelativeToolTip": "ReadBooks\\Migrations\\20260721214507_InitialCreateMigration.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCEAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T22:33:32.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Program.cs",
+              "RelativeDocumentMoniker": "ReadBooks\\Program.cs",
+              "ToolTip": "C:\\Users\\Adonay Navas\\Desktop\\ReadBooks-C-\\ReadBooks\\Program.cs",
+              "RelativeToolTip": "ReadBooks\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAIBZwAsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T22:16:01.742Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
