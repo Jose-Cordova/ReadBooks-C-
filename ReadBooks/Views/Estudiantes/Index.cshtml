@@ -4,18 +4,20 @@
     ViewData["Title"] = "Gestión de Estudiantes";
 }
 
-@if (TempData["Success"] != null)
-{
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-        @TempData["Success"]
-    </div>
-}
 
+<div id="contenedorAlertas">
+    @if (TempData["Success"] != null)
+    {
+        <div id="alertaExito" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            @TempData["Success"]
+        </div>
+    }
+</div>
 <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
     <h1 class="text-2xl font-bold text-brandDark">Gestión de Estudiantes</h1>
 
     <div class="flex items-center gap-3">
-        <!-- MODIFICADO: Añadido id="inputBuscar" y el evento oninput -->
+
         <input type="text"
                id="inputBuscar"
                oninput="filtrarEstudiantes()"
@@ -39,7 +41,6 @@
                 <th class="text-left px-6 py-3 text-sm font-semibold">Acciones</th>
             </tr>
         </thead>
-        <!-- MODIFICADO: Añadido id="tablaCuerpo" y ahora carga la vista parcial originalmente -->
         <tbody id="tablaCuerpo" class="divide-y divide-gray-200">
             @await Html.PartialAsync("_TablaEstudiantes", Model)
         </tbody>
@@ -49,15 +50,12 @@
 <div id="modalContainer"></div>
 
 <script>
-    // NUEVA FUNCIÓN: Se ejecuta inmediatamente cada vez que el usuario escribe una letra
     function filtrarEstudiantes() {
         const texto = document.getElementById('inputBuscar').value;
 
-        // Hacemos la petición al controlador pasando lo escrito como parámetro
         fetch(`/Estudiantes/Buscar?buscar=${encodeURIComponent(texto)}`)
             .then(response => response.text())
             .then(html => {
-                // Reemplazamos únicamente el contenido del tbody con los resultados filtrados
                 document.getElementById('tablaCuerpo').innerHTML = html;
             })
             .catch(error => console.error('Error al filtrar:', error));
@@ -75,4 +73,57 @@
     function cerrarModal() {
         document.getElementById('modalContainer').innerHTML = '';
     }
+
+   
+    function enviarFormularioCrear(event) {
+        event.preventDefault(); 
+
+        const form = document.getElementById('formCrearEstudiante');
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url; 
+                    return null;
+                }
+                return response.text(); 
+            })
+            .then(html => {
+                if (html) {
+                    document.getElementById('modalContainer').innerHTML = html;
+                }
+            })
+            .catch(error => console.error('Error al guardar:', error));
+    }
+
+    
+    function enviarFormularioEditar(event) {
+        event.preventDefault(); 
+
+        const form = document.getElementById('formEditarEstudiante');
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url; 
+                    return null;
+                }
+                return response.text();
+            })
+            .then(html => {
+                if (html) {
+                    document.getElementById('modalContainer').innerHTML = html; 
+                }
+            })
+            .catch(error => console.error('Error al actualizar:', error));
+    }
 </script>
+
