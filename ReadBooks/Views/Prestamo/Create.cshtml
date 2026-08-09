@@ -1,0 +1,73 @@
+﻿@model Prestamo
+
+<div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 min-h-screen p-4">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
+
+        <div class="bg-brandDark px-6 py-4 flex justify-between items-center">
+            <h2 class="text-lg font-bold text-white">Registrar Nuevo Préstamo</h2>
+            <button type="button" class="cerrar-modal text-white hover:text-gray-300">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <div class="p-6">
+            <form id="formCrearPrestamo" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Libro (Solo disponibles)</label>
+                    <input type="text" name="LibroTitulo" list="listaLibros" placeholder="Escriba el nombre del libro..."
+                           class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required autocomplete="off" />
+                    <datalist id="listaLibros">
+                        @foreach (var libro in (List<Libro>)ViewBag.Libros)
+                        {
+                            <option value="@libro.Titulo"></option>
+                        }
+                    </datalist>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Estudiante</label>
+                    <input type="text" name="EstudianteNombre" list="listaEstudiantes" placeholder="Escriba el nombre del estudiante..."
+                           class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required autocomplete="off" />
+                    <datalist id="listaEstudiantes">
+                        @foreach (var est in (List<Estudiante>)ViewBag.Estudiantes)
+                        {
+                            <option value="@est.Nombre @est.Apellido (@est.Carnet)"></option>
+                        }
+                    </datalist>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Condición al entregar</label>
+                    <select name="CondicionAlEntregar" class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required>
+                        <option value="">Seleccione una opción</option>
+                        @foreach (var item in Html.GetEnumSelectList<CondicionLibro>())
+                        {
+                            <option value="@item.Text">@item.Text</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Cantidad de ejemplares</label>
+                    <input type="number" name="Cantidad" min="1" value="1" class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required />
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de Devolución Programada</label>
+                    <input type="date" name="FechaDevolucionProgramada" class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required />
+                </div>
+
+                <div class="flex justify-end gap-3">
+                    <button type="button" class="cerrar-modal px-5 py-2 rounded-md bg-brandBlue text-white hover:opacity-90">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="px-5 py-2 rounded-md bg-brandRed text-white hover:bg-brandRedHover">
+                        Registrar Préstamo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

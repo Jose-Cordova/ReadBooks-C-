@@ -32,7 +32,7 @@ namespace ReadBooks.Models
 
         [Column("Estado", TypeName = "varchar(20)")]
         [Required]
-        public EstadoPrestamo Estado { get; set; } = EstadoPrestamo.PENDIENTE;
+        public EstadoPrestamo Estado { get; set; } = EstadoPrestamo.PRESTADO;
 
         [Column("LibroId", TypeName = "integer")]
         public int LibroId { get; set; }
