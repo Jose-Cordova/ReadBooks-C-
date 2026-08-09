@@ -3,7 +3,7 @@ namespace ReadBooks.Models
 {
     public enum EstadoPrestamo
     {
-        PENDIENTE,
+        PRESTADO,
         DEVUELTO
     }
 }
