@@ -16,24 +16,26 @@
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Libro (Solo disponibles)</label>
-                    <input type="text" name="LibroTitulo" list="listaLibros" placeholder="Escriba el nombre del libro..."
+                    <input type="text" id="inputLibroTexto" list="listaLibros" placeholder="Escriba el nombre del libro..."
                            class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required autocomplete="off" />
+                    <input type="hidden" id="inputLibroId" name="LibroId" value="0" />
                     <datalist id="listaLibros">
                         @foreach (var libro in (List<Libro>)ViewBag.Libros)
                         {
-                            <option value="@libro.Titulo"></option>
+                            <option data-id="@libro.Id" value="@libro.Titulo"></option>
                         }
                     </datalist>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Estudiante</label>
-                    <input type="text" name="EstudianteNombre" list="listaEstudiantes" placeholder="Escriba el nombre del estudiante..."
+                    <input type="text" id="inputEstudianteTexto" list="listaEstudiantes" placeholder="Escriba el nombre del estudiante..."
                            class="w-full bg-gray-50 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brandBlue" required autocomplete="off" />
+                    <input type="hidden" id="inputEstudianteId" name="EstudianteId" value="0" />
                     <datalist id="listaEstudiantes">
                         @foreach (var est in (List<Estudiante>)ViewBag.Estudiantes)
                         {
-                            <option value="@est.Nombre @est.Apellido (@est.Carnet)"></option>
+                            <option data-id="@est.Id" value="@est.Nombre @est.Apellido (@est.Carnet)"></option>
                         }
                     </datalist>
                 </div>

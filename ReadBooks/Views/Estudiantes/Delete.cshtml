@@ -10,31 +10,46 @@
 
         <div class="bg-brandRed px-6 py-4 flex justify-between items-center">
             <h2 class="text-lg font-bold text-white">Eliminar Estudiante</h2>
-            
+
             <button onclick="cerrarModal()" class="text-white hover:text-gray-200">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
         </div>
 
         <div class="p-6">
-            <p class="text-gray-600 mb-6">
-                ¿Estás seguro de que deseas eliminar a este estudiante y su historial de préstamos?
-            </p>
+            @if ((bool)ViewBag.TienePrestamos)
+            {
+                <p class="text-gray-600 mb-6">
+                    No se puede eliminar a <span class="font-semibold">@Model.Nombre @Model.Apellido</span> porque tiene préstamos asociados en el sistema. 
+                </p>
 
-            <form asp-controller="Estudiantes" asp-action="Delete" asp-route-id="@Model.Id" method="post">
-                @Html.AntiForgeryToken()
-
-                <div class="flex justify-end gap-3">
-                    
+                <div class="flex justify-end">
                     <button type="button" onclick="cerrarModal()"
                             class="px-5 py-2 rounded-md bg-brandBlue text-white hover:opacity-90">
-                        Cancelar
-                    </button>
-                    <button type="submit" class="px-5 py-2 rounded-md bg-brandRed text-white hover:bg-brandRedHover">
-                        Eliminar
+                        Cerrar
                     </button>
                 </div>
-            </form>
+            }
+            else
+            {
+                <p class="text-gray-600 mb-6">
+                    ¿Estás seguro de que deseas eliminar a <span class="font-semibold">@Model.Nombre @Model.Apellido</span>?
+                </p>
+
+                <form asp-controller="Estudiantes" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="flex justify-end gap-3">
+                        <button type="button" onclick="cerrarModal()"
+                                class="px-5 py-2 rounded-md bg-brandBlue text-white hover:opacity-90">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="px-5 py-2 rounded-md bg-brandRed text-white hover:bg-brandRedHover">
+                            Eliminar
+                        </button>
+                    </div>
+                </form>
+            }
         </div>
     </div>
 </div>
