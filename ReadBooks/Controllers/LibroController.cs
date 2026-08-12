@@ -19,20 +19,27 @@ namespace ReadBooks.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int pagina = 1)
+        public async Task<IActionResult> Index(int pagina = 1, string? busqueda = null)
         {
             const int tamanoPagina = 10;
 
-            int totalRegistros = await _context.Libros.CountAsync();
+            var consulta = _context.Libros
+                .Include(l => l.Autor)
+                .Include(l => l.Categoria)
+                .AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                consulta = consulta.Where(l => l.Titulo.ToLower().Contains(busqueda.ToLower()));
+            }
+
+            int totalRegistros = await consulta.CountAsync();
             int totalPaginas = (int)Math.Ceiling((double)totalRegistros / tamanoPagina);
 
             if (pagina < 1) pagina = 1;
             if (totalPaginas > 0 && pagina > totalPaginas) pagina = totalPaginas;
 
-            var libros = await _context.Libros
-                .Include(l => l.Autor)
-                .Include(l => l.Categoria)
-                .AsNoTracking()
+            var libros = await consulta
                 .OrderBy(l => l.Titulo)
                 .Skip((pagina - 1) * tamanoPagina)
                 .Take(tamanoPagina)
@@ -44,6 +51,13 @@ namespace ReadBooks.Controllers
             ViewBag.PaginaActual = pagina;
             ViewBag.TotalPaginas = totalPaginas;
             ViewBag.TotalRegistros = totalRegistros;
+            ViewBag.Busqueda = busqueda;
+
+            bool isAjax = Request.Headers["X-Requested-With"] == "XMLHttpRequest";
+            if (isAjax)
+            {
+                return PartialView("_LibroLista", libros);
+            }
 
             return View(libros);
         }
@@ -253,11 +267,20 @@ namespace ReadBooks.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var libro = await _context.Libros.FindAsync(id);
-            if (libro != null)
+            if (libro == null)
             {
-                _context.Libros.Remove(libro);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
+
+            bool tienePrestamos = await _context.Prestamos.AnyAsync(p => p.LibroId == id);
+            if (tienePrestamos)
+            {
+                TempData["Error"] = $"No se puede eliminar el libro \"{libro.Titulo}\" porque tiene préstamos asociados.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            _context.Libros.Remove(libro);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
@@ -312,6 +335,10 @@ namespace ReadBooks.Controllers
                 var categoria = await _context.Categorias.FindAsync(id);
                 if (categoria == null)
                     return Json(new { success = false, message = "Categoría no encontrada." });
+
+                bool tieneLibros = await _context.Libros.AnyAsync(l => l.CategoriaId == id);
+                if (tieneLibros)
+                    return Json(new { success = false, message = $"No se puede eliminar la categoría \"{categoria.Nombre}\" porque tiene libros asociados." });
 
                 _context.Categorias.Remove(categoria);
                 await _context.SaveChangesAsync();
@@ -372,6 +399,10 @@ namespace ReadBooks.Controllers
                 var autor = await _context.Autores.FindAsync(id);
                 if (autor == null)
                     return Json(new { success = false, message = "Autor no encontrado." });
+
+                bool tieneLibros = await _context.Libros.AnyAsync(l => l.AutorId == id);
+                if (tieneLibros)
+                    return Json(new { success = false, message = $"No se puede eliminar al autor \"{autor.Nombre}\" porque tiene libros asociados." });
 
                 _context.Autores.Remove(autor);
                 await _context.SaveChangesAsync();
