@@ -171,4 +171,12 @@
         });
         </text>
     }
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        mostrarToast('@Html.Raw(TempData["Error"])', 'error');
+                    });
+            </text>
+    }
 </script>

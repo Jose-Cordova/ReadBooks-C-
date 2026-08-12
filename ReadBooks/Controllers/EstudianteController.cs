@@ -70,7 +70,7 @@ namespace ReadBooks.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            
+
             Response.StatusCode = 400;
             return PartialView(estudiante);
         }
@@ -112,7 +112,7 @@ namespace ReadBooks.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            
+
             Response.StatusCode = 400;
             return PartialView(estudiante);
         }
@@ -127,21 +127,33 @@ namespace ReadBooks.Controllers
             var estudiante = await _context.Estudiantes.FindAsync(id);
             if (estudiante == null) return NotFound();
 
+            //aqui verifico si tien prestamos asociado
+            ViewBag.TienePrestamos = await _context.Prestamos.AnyAsync(p => p.EstudianteId == id);
+
             return PartialView(estudiante);
         }
 
-        // lo eliminaos 
+        // lo eliminaos ded confirmacion
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var estudiante = await _context.Estudiantes.FindAsync(id);
-            if (estudiante != null)
+            if (estudiante == null)
             {
-                _context.Estudiantes.Remove(estudiante);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Estudiante eliminado correctamente.";
+                return RedirectToAction(nameof(Index));
             }
+
+            var tienePrestamos = await _context.Prestamos.AnyAsync(p => p.EstudianteId == id);
+            if (tienePrestamos)
+            {
+                TempData["Error"] = "No se puede elminar el estudiante porque tiene prestamos asociados.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            _context.Estudiantes.Remove(estudiante);
+            await _context.SaveChangesAsync();
+            TempData["Success"] = "Estudiante elminado correctamente. ";
 
             return RedirectToAction(nameof(Index));
         }

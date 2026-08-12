@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 
 namespace ReadBooks.Models
 {
@@ -46,5 +47,6 @@ namespace ReadBooks.Models
 
         [ForeignKey("EstudianteId")]
         public virtual Estudiante? Estudiante { get; set; }
+        
     }
 }
